@@ -10,7 +10,6 @@ const { AuthTokenType } = require('../utils/token');
 router
     .post('/login', routerSchemaValidator(RouteValidatorSchema.Auth.login), AuthController.login)
     .post('/signup', routerSchemaValidator(RouteValidatorSchema.Auth.signup), AuthController.signup)
-    .post('/create-user', AuthController.createUser)
     .post('/signup-otp', routerSchemaValidator(RouteValidatorSchema.Auth.signup), AuthController.signupWithOtp)
     .post('/update-password', AuthController.updatePassword)
     .post('/logout', verifyAuth(AuthTokenType.Access), AuthenticatedController(AuthController.logout))
